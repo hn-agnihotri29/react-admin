@@ -1,7 +1,9 @@
-
+import Wrapper from "./Wrapper";
 
 const Users = () => (
-    <p>Users page</p>
+    <Wrapper>
+        <p>Users page</p>
+    </Wrapper>
 )
 
 export default Users;

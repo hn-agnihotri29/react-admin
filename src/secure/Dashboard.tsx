@@ -1,6 +1,7 @@
- 
+ import Wrapper from "./Wrapper";
+
  const Dashboard = () => (
-    <div>
+    <Wrapper>
         <h2>Section Title</h2>
         <div className="table-responsive">
             <table className="table table-striped table-sm">
@@ -24,7 +25,7 @@
                 </tbody>
             </table>
         </div>
-    </div>
+    </Wrapper>
  )
 
  export default Dashboard;
