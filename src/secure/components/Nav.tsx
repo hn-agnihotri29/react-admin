@@ -1,13 +1,40 @@
+import React, {Component} from 'react';
+import {Navigate, Link} from 'react-router-dom';
+// import {User} from "../../classes/user";
+// import { connect } from 'react-redux';
+import axios from 'axios';
 
-const Nav = () => (
-    <nav className="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
-      <a className="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Company name</a>
-      <ul className="navbar-nav px-3">
-        <li className="nav-item text-nowrap">
-          <a className="nav-link" href="#">Sign out</a>
-        </li>
-      </ul>
-    </nav>
-)
+class Nav extends Component {
+    state = {
+        redirect: false
+    }
 
-export default Nav 
+    handleClick = async () => {
+        await axios.post('logout', {});
+
+        this.setState({
+            redirect: true
+        })
+    }
+
+    render() {
+        if (this.state.redirect) {
+          return <Navigate to='/login' replace={true}/>
+        }
+
+        return (
+            <nav className="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+                <a className="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="#">Company name</a>
+
+                <ul className="my-2 my-md-0 mr-md-3">
+                    {/* <Link to={'/profile'}
+                          className="p-2 text-white">{this.props.user.name}</Link> */}
+                    <a className="p-2 text-white" href="#" onClick={this.handleClick}>Sign out</a>
+                </ul>
+            </nav>
+        )
+    }
+}
+
+// @ts-ignore
+export default Nav

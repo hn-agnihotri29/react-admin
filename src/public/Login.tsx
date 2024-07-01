@@ -1,7 +1,7 @@
 import { Component, SyntheticEvent } from "react"
 import "../public/Public.css"
 import axios from "axios";
-import { redirect } from "react-router-dom";
+import { redirect, Navigate } from "react-router-dom";
 
 class Login extends Component {
     email = '';
@@ -28,7 +28,7 @@ class Login extends Component {
     render() {
         return (
             <>
-                { this.state.redirect ? redirect("/") : 
+                { this.state.redirect ? <Navigate to='/' replace={true} /> : 
                     <div>
                         <form className="form-signin" onSubmit={this.submit}>
                             <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
