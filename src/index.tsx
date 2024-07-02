@@ -5,7 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import axios from "axios";
 
-axios.defaults.baseURL = "http://localhost:8000/api/"
+axios.defaults.baseURL = 'http://localhost:8000/api/';
 //For authentication to get the cookies from backend, this we get the cookies from backend and send those cookies back 
 axios.defaults.withCredentials = true;
 

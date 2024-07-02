@@ -1,7 +1,7 @@
 import './App.css';
-import Dashboard  from './secure/Dashboard';
+import Dashboard from './secure/dashboard/Dashboard';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Users from './secure/User';
+import Users from './secure/users/User';
 import Login  from './public/Login';
 import Register from './public/Register';
 

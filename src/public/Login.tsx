@@ -1,7 +1,7 @@
 import { Component, SyntheticEvent } from "react"
 import "../public/Public.css"
 import axios from "axios";
-import { redirect, Navigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
 class Login extends Component {
     email = '';

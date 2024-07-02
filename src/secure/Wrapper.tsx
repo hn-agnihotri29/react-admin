@@ -11,8 +11,7 @@ class Wrapper extends Component<PropsWithChildren<any>> {
 
     componentDidMount = async () => {
         try {
-            const response = await axios.get('user');
-            console.log(response);
+            await axios.get('user');
         } catch(e) {
             this.setState({
                 redirect: true

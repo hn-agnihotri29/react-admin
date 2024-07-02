@@ -28,7 +28,7 @@ class Nav extends Component {
 
                 <ul className="my-2 my-md-0 mr-md-3">
                     {/* <Link to={'/profile'}
-                          className="p-2 text-white">{this.props.user.name}</Link> */}
+                          className="p-2 text-white">{this.props.users.name}</Link> */}
                     <a className="p-2 text-white" href="#" onClick={this.handleClick}>Sign out</a>
                 </ul>
             </nav>
