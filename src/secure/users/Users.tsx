@@ -11,13 +11,31 @@ class Users extends Component {
         users: []
     }
 
+    page = 1
+    last_page = 0;
+
+
     componentDidMount = async () => {
-        const response = await axios.get('users')
+        const response = await axios.get(`users?page=${this.page}`)
 
         this.setState({
             users: response.data.data
         })
+
+        this.last_page = response.data.meta.last_page
         
+    }
+
+    prev = async() => {
+        if(this.page === 1) return;
+        this.page--;
+        await this.componentDidMount()
+    }
+
+    next = async() => {
+        if(this.page === this.last_page) return;
+        this.page++;
+        await this.componentDidMount()
     }
 
     render() {
@@ -58,6 +76,16 @@ class Users extends Component {
                         </tbody>
                     </table>
                 </div>
+                <nav>
+                    <ul className="pagination">
+                        <li className="page-item">
+                            <a  href="#" className="page-link" onClick={this.prev}>Previous</a>
+                        </li>
+                        <li className="page-item">
+                            <a href="#" className="page-link" onClick={this.next}>Next</a>
+                        </li>
+                    </ul>
+                </nav>
             </Wrapper>
         );
     }
