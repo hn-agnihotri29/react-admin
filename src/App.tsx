@@ -7,6 +7,7 @@ import Register from './public/Register';
 import RedirectToDashboard from './secure/RedirectToDashboard';
 import UserCreate from './secure/users/UserCreate';
 import UserEdit from './secure/users/UserEdit';
+import { Roles } from './secure/roles/Roles';
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
             <Route path='/users/*' element={<Users />}/>
             <Route path='/users/create' element={<UserCreate />}/>
             <Route path='/users/:id/edit' element={<UserEdit match/>}/>
+            <Route path='/roles' element={<Roles />}/>
         </Routes>
       </BrowserRouter>
   );
