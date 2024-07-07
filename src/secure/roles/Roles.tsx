@@ -56,7 +56,7 @@ export class Roles extends React.Component {
                                         <td>{role.name}</td>
                                         <td>
                                             <div className="btn-group mr-2">
-                                                <Link to={`/users/${role.id}/edit`} className="btn btn-sm btn-outline-secondary">Edit</Link>
+                                                <Link to={`/roles/${role.id}/edit`} className="btn btn-sm btn-outline-secondary">Edit</Link>
                                                 <a href="#" className="btn btn-sm btn-outline-secondary" 
                                                     onClick={() => this.delete(role.id)}>
                                                         Delete
