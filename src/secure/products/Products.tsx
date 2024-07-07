@@ -5,6 +5,7 @@ import Wrapper from "../Wrapper";
 import {Link} from "react-router-dom";
 import axios from 'axios';
 import {Product} from "../../classes/product";
+import Paginator from '../components/Paginator';
 
 
 class Products extends Component<{ }> {
@@ -22,6 +23,12 @@ class Products extends Component<{ }> {
         })
 
         this.last_page = response.data.meta.last_page;
+    }
+
+    handlePageChange = async (page: number) => {
+        this.page = page;
+
+        await this.componentDidMount();
     }
 
     delete = async (id: number) => {
@@ -86,7 +93,8 @@ class Products extends Component<{ }> {
                     </table>
                 </div>
 
-                {/* <Paginator lastPage={this.last_page} handlePageChange={this.handlePageChange}/> */}
+                <Paginator lastPage={this.last_page} handlePageChange={this.handlePageChange}/>
+
             </Wrapper>
         );
     }
