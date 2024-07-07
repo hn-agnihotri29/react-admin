@@ -4,6 +4,7 @@ import axios from "axios";
 import { User } from "../../classes/user";
 import {Link} from "react-router-dom";
 import Paginator from "../components/Paginator";
+import Deleter from "../components/Deleter";
 
 
 class Users extends Component {
@@ -33,15 +34,12 @@ class Users extends Component {
         await this.componentDidMount();
     }
 
-    delete = async (id: number) => {
-        if(window.confirm("Are you sure want to delete this record")) {
-            await axios.delete(`users/${id}`);
-
+    handleDelete = async (id: number) => {
             this.setState({
                 users: this.state.users.filter((u: User) => u.id !== id)
             })
-        }
     }
+
 
     render() {
         return (
@@ -68,7 +66,7 @@ class Users extends Component {
                         {this.state.users.map(
                             (user : User) => {
                                 return (
-                                    <tr>
+                                    <tr key={user.id}>
                                         <td>{user.id}</td>
                                         <td>{user.first_name} {user.last_name}</td>
                                         <td>{user.email}</td>
@@ -76,10 +74,7 @@ class Users extends Component {
                                         <td>
                                             <div className="btn-group mr-2">
                                                 <Link to={`/users/${user.id}/edit`} className="btn btn-sm btn-outline-secondary">Edit</Link>
-                                                <a href="#" className="btn btn-sm btn-outline-secondary" 
-                                                    onClick={() => this.delete(user.id)}>
-                                                        Delete
-                                                </a>
+                                                <Deleter id={user.id} endpoint={'users'} handleDelete={this.handleDelete}/>
                                             </div>
                                         </td>
                                     </tr>
