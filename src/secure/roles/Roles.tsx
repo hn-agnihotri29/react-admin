@@ -24,7 +24,7 @@ export class Roles extends React.Component {
             await axios.delete(`roles/${id}`);
 
             this.setState({
-                users: this.state.roles.filter((u: Role) => u.id !== id)
+                roles: this.state.roles.filter((u: Role) => u.id !== id)
             })
         }
     }
