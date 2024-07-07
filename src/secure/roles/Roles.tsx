@@ -74,3 +74,5 @@ export class Roles extends React.Component {
     );
   };
 };
+
+export default Roles;
