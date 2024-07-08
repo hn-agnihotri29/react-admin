@@ -29,13 +29,23 @@ class ProductCreate extends Component {
         })
     }
 
-    imageChanged = (image: string) => {
-        this.image = image;
+    upload = async(files : FileList | null) => {
+        if (files === null) return;
+
+        const data = new FormData();
+        data.append('image', files[0]);
+
+        const response = await axios.post('upload', data);
+
+        this.image = response.data.url;
 
         this.setState({
             image: this.image
         })
+
     }
+
+
 
     render() {
         if (this.state.redirect) {
@@ -60,14 +70,14 @@ class ProductCreate extends Component {
                     <div className="form-group">
                         <label>Image</label>
                         <div className="input-group">
-                             <input type="text" className="form-control" name="image"
+                             <input type="text" className="form-control" name="image" value={this.image = this.state.image}
                                    onChange={e => {
                                         this.image = e.target.value;
                                     }}
                         />
                         <div className="input-group-append">
                             <label className="btn btn-primary">
-                                Upload <input type="file" hidden />
+                                Upload <input type="file" hidden onChange={e => this.upload(e.target.files)}/>
                             </label>
                         </div>
                     </div>
