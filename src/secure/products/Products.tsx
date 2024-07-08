@@ -1,5 +1,4 @@
 /* eslint-disable jsx-a11y/alt-text */
-
 import {Component} from 'react';
 import Wrapper from "../Wrapper";
 import {Link} from "react-router-dom";
@@ -41,7 +40,6 @@ class Products extends Component<{ }> {
 
 
     render() {
-        let addButton = null;
         return (
             <Wrapper>
                 <div

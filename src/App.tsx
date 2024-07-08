@@ -12,6 +12,7 @@ import RoleCreate from './secure/roles/RoleCreate';
 import RoleEdit from './secure/roles/RoleEdit';
 import Products from './secure/products/Products';
 import ProductCreate from './secure/products/ProductCreate';
+import ProductEdit from './secure/products/ProductEdit';
 
 
 function App() {
@@ -29,7 +30,8 @@ function App() {
             <Route path='/roles/create' element={<RoleCreate />}/>
             <Route path='/roles/:id/edit' element={<RoleEdit  match />}/>  
             <Route path='/products' element={<Products />}/>      
-            <Route path='/products/create' element={<ProductCreate />}/>    
+            <Route path='/products/create' element={<ProductCreate />}/> 
+            <Route path='/products/:id/edit' element={<ProductEdit  match />}/>   
         </Routes>
       </BrowserRouter>
   );
