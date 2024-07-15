@@ -27,7 +27,7 @@ class Login extends Component {
     render() {
         return (
             <>
-                { this.state.redirect ? <Navigate to='/' replace={true} /> : 
+                { this.state.redirect ? <Navigate to='/dashboard' replace={true} /> : 
                     <div>
                         <form className="form-signin" onSubmit={this.submit}>
                             <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>

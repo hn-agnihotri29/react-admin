@@ -2,12 +2,11 @@
 import React, {Component} from 'react';
 import {Navigate, Link} from 'react-router-dom';
 import {User} from "../../classes/user";
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 import axios from 'axios';
 
-class Nav extends Component {
+class Nav extends Component<{user: User}> {
     state = {
-        user: new User(),
         redirect: false
     }
 
@@ -39,7 +38,7 @@ class Nav extends Component {
 
                 <ul className="my-2 my-md-0 mr-md-3">
                     <Link to={'/profile'}
-                          className="p-2 text-white">{this.state.user.first_name} {this.state.user.last_name}</Link>
+                          className="p-2 text-white">{this.props.user.first_name} {this.props.user.last_name}</Link>
                           
                     <a className="p-2 text-white" href="#" onClick={this.handleClick}>Sign out</a>
                 </ul>
@@ -49,4 +48,4 @@ class Nav extends Component {
 }
 
 // @ts-ignore
-export default Nav
+export default connect(state => ({user: state.user}))(Nav);
