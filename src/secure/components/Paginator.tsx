@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import {Component} from 'react';
 
 class Paginator extends Component<{ lastPage: number, handlePageChange: any }> {
