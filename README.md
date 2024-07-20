@@ -1,46 +1,95 @@
-# Getting Started with Create React App
+# React TypeScript Template Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
 
-## Available Scripts
+This React project template is built with TypeScript and Redux to minimize API call redundancy. It leverages `c3` for chart visualizations and integrates seamlessly with a Django backend running in a Dockerized environment. The project is designed with robust state management using Redux and intuitive routing using `react-router-dom`.
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- **State Management**: Utilizes Redux for efficient state management and to minimize API call redundancy.
+- **Charting**: Uses `c3` for displaying charts.
+- **Routing**: Implements routing with `react-router-dom` using `Link` and `NavLink`.
+- **Backend Integration**: Communicates with a Django backend running in Docker.
+- **TypeScript Support**: Built with TypeScript for type safety and better development experience.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Prerequisites
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- Node.js
+- npm
+- Redux
+- React
+- JavaScript
+- TypeScript
 
-### `npm test`
+## Installation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Backend Setup
 
-### `npm run build`
+1. **Clone the Django repository**:
+    ```sh
+    git clone https://github.com/hn-agnihotri29/django_admin.git
+    cd django_admin
+    ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. **Run Docker Compose**:
+    ```sh
+    docker-compose up
+    ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Frontend Setup
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. **Clone the React repository**:
+    ```sh
+    git clone https://github.com/hn-agnihotri29/react-admin.git
+    cd react-admin
+    ```
 
-### `npm run eject`
+2. **Install dependencies**:
+    ```sh
+    npm install
+    ```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+3. **Run the React application**:
+    ```sh
+    npm start
+    ```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Usage
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### State Management
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+The project uses Redux for managing the application state, which helps in reducing redundant API calls and maintaining a single source of truth for the application state.
 
-## Learn More
+### Charting
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Charts are displayed using `c3`, a D3-based reusable chart library. The charts are integrated into the dashboard to visualize data fetched from the Django API.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Routing
+
+Routing is handled using `react-router-dom`. Below is an example of how to use `Link` and `NavLink` for navigation:
+
+```tsx
+import { Link, NavLink } from 'react-router-dom';
+
+const Navigation = () => (
+    <nav>
+        <NavLink to="/" exact>Home</NavLink>
+        <NavLink to="/dashboard">Dashboard</NavLink>
+    </nav>
+);
+```
+
+## API Integration
+The React frontend communicates with the Django backend for fetching and displaying data. Ensure the Django server is running via Docker Compose before starting the React application.
+
+##Project Structure
+- src/: Contains the main application code.
+- secure/components/: Reusable UI components.
+- redux/: Redux store, actions, and reducers.
+- src/classes/: Different section classes for types checking.
+  
+## Contributing
+Contributions are welcome! Please create a pull request with a detailed description of your changes.
+
+## License
+This project is licensed under the MIT License.
